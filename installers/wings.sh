@@ -183,7 +183,7 @@ configure_mysql() {
       sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/mariadb.conf.d/50-server.cnf
       ;;
     rocky | almalinux)
-      sed -ne 's/^#bind-address=0.0.0.0$/bind-address=0.0.0.0/' /etc/my.cnf.d/mariadb-server.cnf
+      sed -i 's/^#bind-address=.*$/bind-address=0.0.0.0/' /etc/my.cnf.d/mariadb-server.cnf
       ;;
     esac
 
@@ -192,6 +192,7 @@ configure_mysql() {
 
   success "MySQL configured!"
 }
+
 
 # --------------- Main functions --------------- #
 
